@@ -24,5 +24,25 @@ public class UsuarioServiceImpl implements IUsuarioService {
         return ResponseEntity.ok(usuario);
     }
 
+    @Override
+    public ResponseEntity getAllUser() {
+        return ResponseEntity.ok(usuarioRepository.findAll());
+    }
+
+    @Override
+    public ResponseEntity getUserNameNativeQuery(String nombre) {
+        return ResponseEntity.ok(usuarioRepository.buscarPorNombreUsuario(nombre));
+    }
+
+    @Override
+    public ResponseEntity getUserNameForJPQL(String nombre) {
+        return ResponseEntity.ok(usuarioRepository.buscarPorNombreUsuarioJPQL(nombre));
+    }
+
+    @Override
+    public ResponseEntity getUserNameForJpaRepository(String nombre) {
+        return ResponseEntity.ok(usuarioRepository.findByNombre(nombre));
+    }
+
 
 }

@@ -7,4 +7,14 @@ public interface IUsuarioService {
 
     ResponseEntity guardarUsuario(UsuarioEntity usuarioEntity);
 
+    ResponseEntity getAllUser();
+
+
+    ResponseEntity getUserNameNativeQuery(String nombre);
+
+    ResponseEntity getUserNameForJPQL(String nombre);
+
+
+    ResponseEntity getUserNameForJpaRepository(String nombre);
+
 }
