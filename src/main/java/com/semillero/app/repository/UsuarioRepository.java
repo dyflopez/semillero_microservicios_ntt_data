@@ -16,4 +16,5 @@ public interface UsuarioRepository extends JpaRepository<UsuarioEntity,Long> {
 
     List<UsuarioEntity> findByNombre(String nombre);
 
+
 }
