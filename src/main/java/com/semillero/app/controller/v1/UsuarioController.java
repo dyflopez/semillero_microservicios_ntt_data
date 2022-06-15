@@ -1,6 +1,7 @@
 package com.semillero.app.controller.v1;
 
 
+import com.semillero.app.dto.UsuarioDTO;
 import com.semillero.app.model.UsuarioEntity;
 import com.semillero.app.services.IUsuarioService;
 import org.springframework.http.ResponseEntity;
@@ -45,4 +46,15 @@ public class UsuarioController {
     public ResponseEntity getUserForJPARespository(@PathParam("nombre") String nombre){
         return iUsuarioService.getUserNameForJpaRepository(nombre);
     }
+
+    @PutMapping
+    public ResponseEntity modificarUsuario(@RequestBody UsuarioEntity usuarioEntity){
+        return iUsuarioService.putUserInformation(usuarioEntity) ;
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity putUser(@PathVariable Long id ,@RequestBody UsuarioDTO usuario){
+        return iUsuarioService.actualizarUsuario(id,usuario);
+    }
+
 }

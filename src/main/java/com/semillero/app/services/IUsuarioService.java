@@ -1,5 +1,6 @@
 package com.semillero.app.services;
 
+import com.semillero.app.dto.UsuarioDTO;
 import com.semillero.app.model.UsuarioEntity;
 import org.springframework.http.ResponseEntity;
 
@@ -16,5 +17,11 @@ public interface IUsuarioService {
 
 
     ResponseEntity getUserNameForJpaRepository(String nombre);
+
+
+    ResponseEntity putUserInformation(UsuarioEntity usuarioEntity);
+
+
+    ResponseEntity actualizarUsuario(Long id, UsuarioDTO usuarioDTO);
 
 }
