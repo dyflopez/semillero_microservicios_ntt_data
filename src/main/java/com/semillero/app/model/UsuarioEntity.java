@@ -7,8 +7,6 @@ import java.util.Date;
 @Entity
 @Table(name = "usuario")
 public class UsuarioEntity implements Serializable {
-
-
     @Id
     @Column(name = "id_usuario")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
