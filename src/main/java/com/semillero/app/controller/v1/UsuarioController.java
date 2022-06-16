@@ -57,4 +57,10 @@ public class UsuarioController {
         return iUsuarioService.actualizarUsuario(id,usuario);
     }
 
+    @DeleteMapping("/logic/{id}")
+    public ResponseEntity deleteHard(@PathVariable Long id){
+        return iUsuarioService.deleteLogic(id);
+    }
+
+
 }

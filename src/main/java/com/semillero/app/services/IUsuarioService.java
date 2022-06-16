@@ -24,4 +24,8 @@ public interface IUsuarioService {
 
     ResponseEntity actualizarUsuario(Long id, UsuarioDTO usuarioDTO);
 
+    ResponseEntity deleteHard(Long id);
+
+    ResponseEntity deleteLogic(Long id);
+
 }

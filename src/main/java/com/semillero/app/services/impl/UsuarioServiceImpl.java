@@ -24,7 +24,7 @@ public class UsuarioServiceImpl implements IUsuarioService {
     @Override
     public ResponseEntity guardarUsuario(UsuarioEntity usuarioEntity) {
         usuarioEntity.setFechaCreacion(new Date());
-        UsuarioEntity usuario=usuarioRepository.save(usuarioEntity);
+        UsuarioEntity usuario = usuarioRepository.save(usuarioEntity);
         return ResponseEntity.ok(usuario);
     }
 
@@ -50,7 +50,7 @@ public class UsuarioServiceImpl implements IUsuarioService {
 
     @Override
     public ResponseEntity putUserInformation(UsuarioEntity usuarioEntity) {
-        UsuarioEntity usuario = usuarioRepository.findById(usuarioEntity.getId()).orElse( new UsuarioEntity());
+        UsuarioEntity usuario = usuarioRepository.findById(usuarioEntity.getId()).orElse(new UsuarioEntity());
         usuario.setNombre(usuarioEntity.getNombre());
         usuario.setApellido(usuarioEntity.getApellido());
         usuarioRepository.save(usuario);
@@ -59,13 +59,32 @@ public class UsuarioServiceImpl implements IUsuarioService {
 
     @Override
     public ResponseEntity actualizarUsuario(Long id, UsuarioDTO usuarioDTO) {
-       // Optional<UsuarioEntity> usuario= usuarioRepository.findById(id);
-        var usuarioOptional= usuarioRepository.findById(id);
+        // Optional<UsuarioEntity> usuario= usuarioRepository.findById(id);
+        var usuarioOptional = usuarioRepository.findById(id);
 
         UsuarioEntity usuarioEntity = usuarioOptional.get();
         usuarioEntity.setApellido(usuarioDTO.getApellido());
         usuarioEntity.setNombre(usuarioDTO.getNombre());
         usuarioRepository.save(usuarioEntity);
         return ResponseEntity.ok(AppConstants.ACTUALIZADO_EXITOSAMENTE);
+    }
+
+    @Override
+    public ResponseEntity deleteHard(Long id) {
+        var usuarioOptional = usuarioRepository.findById(id);
+        usuarioRepository.delete(usuarioOptional.get());
+        return ResponseEntity.ok().build();
+    }
+
+    @Override
+    public ResponseEntity deleteLogic(Long id) {
+
+        var usuario = usuarioRepository.findById(id).get();
+        usuario.setFechaEliminacion(new Date());
+
+        usuarioRepository.save(usuario);
+
+        return ResponseEntity.ok("Se elimino el usuario");
+
     }
 }
