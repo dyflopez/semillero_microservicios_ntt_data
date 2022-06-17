@@ -7,7 +7,6 @@ public class UsuarioDTO {
 
     private  String apellido;
 
-
     public UsuarioDTO() {
     }
 

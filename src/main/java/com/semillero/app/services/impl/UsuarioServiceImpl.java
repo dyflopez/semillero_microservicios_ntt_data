@@ -2,6 +2,7 @@ package com.semillero.app.services.impl;
 
 import com.semillero.app.constants.AppConstants;
 import com.semillero.app.dto.UsuarioDTO;
+import com.semillero.app.dto.UsuarioLombokDTO;
 import com.semillero.app.model.UsuarioEntity;
 import com.semillero.app.repository.UsuarioRepository;
 import com.semillero.app.services.IUsuarioService;
@@ -87,4 +88,20 @@ public class UsuarioServiceImpl implements IUsuarioService {
         return ResponseEntity.ok("Se elimino el usuario");
 
     }
+
+    @Override
+    public ResponseEntity saveUser(UsuarioLombokDTO usuarioLombokDTO) {
+
+        UsuarioEntity usuario = new UsuarioEntity();
+
+        usuario.setNombre(usuarioLombokDTO.getNombre());
+        usuario.setApellido(usuarioLombokDTO.getApellido());
+
+        usuario.setFechaCreacion(new Date());
+        usuario = usuarioRepository.save(usuario);
+
+        return ResponseEntity.ok(usuario);
+
+    }
+
 }

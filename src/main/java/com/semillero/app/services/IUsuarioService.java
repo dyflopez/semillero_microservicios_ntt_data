@@ -1,6 +1,7 @@
 package com.semillero.app.services;
 
 import com.semillero.app.dto.UsuarioDTO;
+import com.semillero.app.dto.UsuarioLombokDTO;
 import com.semillero.app.model.UsuarioEntity;
 import org.springframework.http.ResponseEntity;
 
@@ -27,5 +28,7 @@ public interface IUsuarioService {
     ResponseEntity deleteHard(Long id);
 
     ResponseEntity deleteLogic(Long id);
+
+    ResponseEntity saveUser(UsuarioLombokDTO usuarioLombokDTO);
 
 }
