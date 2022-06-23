@@ -46,4 +46,21 @@ public interface SaludoDocs {
     )
     ResponseEntity getSaludoFullName( @PathVariable String nombre);
 
+
+    @Operation(summary = "Servicio para traer informacion de empleados")
+    @ApiResponses(
+            value = {
+                    @ApiResponse(
+                            responseCode = "200",
+                            description = "retorna listado empleados",
+                            content = {
+                                    @Content(
+                                            mediaType = MediaType.APPLICATION_JSON_VALUE
+                                    )
+                            }
+                    )
+            }
+    )
+    ResponseEntity getEmployee();
+
 }

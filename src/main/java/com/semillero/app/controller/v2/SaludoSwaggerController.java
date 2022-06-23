@@ -31,4 +31,10 @@ public class SaludoSwaggerController implements SaludoDocs {
         return iSaludoService.getSaludoParamName(nombre);
     }
 
+    @Override
+    @GetMapping("/employee-list")
+    public ResponseEntity getEmployee() {
+        return iSaludoService.getEmployees();
+    }
+
 }

@@ -9,4 +9,6 @@ public interface ISaludoService {
     ResponseEntity getSaludoFullname(String  nombre, String apellido);
 
     ResponseEntity getSaludoParamName(String nombre);
+
+    ResponseEntity getEmployees();
 }
