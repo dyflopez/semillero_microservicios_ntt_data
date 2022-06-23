@@ -9,9 +9,8 @@ import com.semillero.app.services.IUsuarioService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import javax.swing.text.html.parser.Entity;
+
 import java.util.Date;
-import java.util.Optional;
 
 @Service
 public class UsuarioServiceImpl implements IUsuarioService {
